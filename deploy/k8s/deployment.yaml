@@ -1,0 +1,29 @@
+# golang-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usuario-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: usuario-front
+  template:
+    metadata:
+      labels:
+        app: usuario-front
+    spec:
+      containers:
+      - name: usuario-front
+        image: gcr.io/celtic-shape-407219/gcr-alpine:{GITHUB_SHA}
+        ports:
+        - containerPort: 8080
+        resources:
+          # You must specify requests for CPU to autoscale
+          # based on CPU utilization
+          limits:
+            cpu: 50m
+            memory: 128Mi
+          requests:
+            cpu: 50m
+            memory: 128Mi
