@@ -9,28 +9,32 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(Cookies.get('token') || null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 const newToken = await currentUser.getIdToken();
-                Cookies.set('token', newToken, { domain: 'localhost' });
+                Cookies.set('token', newToken, { domain: `${import.meta.env.VITE_USER_DOMAIN}` });
                 setToken(newToken);
+                setIsAuthenticated(true);
                 setUser(currentUser);
             } else {
-                Cookies.remove('token', { domain: 'localhost' });
+                Cookies.remove('token', { domain: `${import.meta.env.VITE_USER_DOMAIN}` });
                 setToken(null);
+                setIsAuthenticated(false);
                 setUser(null);
             }
         });
         return () => unsubscribe();
     }, []);
 
+
     const login = async (email, password) => {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const newToken = await userCredential.user.getIdToken();
-            Cookies.set('token', newToken, { domain: 'localhost' });
+            Cookies.set('token', newToken, { domain: `${import.meta.env.VITE_USER_DOMAIN}` });
             setToken(newToken);
             setUser(userCredential.user);
             await loginOnBackend(newToken);
@@ -42,7 +46,7 @@ export const AuthProvider = ({ children }) => {
     const logout = async () => {
         try {
             await signOut(auth);
-            Cookies.remove('token', { domain: 'localhost' });
+            Cookies.remove('token', { domain: `${import.meta.env.VITE_USER_DOMAIN}` });
             setToken(null);
             setUser(null);
         } catch (error) {
@@ -65,7 +69,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ token, user, login, logout, register, getToken: () => Cookies.get('token') }}>
+        <AuthContext.Provider value={{ isAuthenticated, token, user, login, logout, register, getToken: () => Cookies.get('token') }}>
             {children}
         </AuthContext.Provider>
     );

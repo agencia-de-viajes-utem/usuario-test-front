@@ -34,7 +34,7 @@ export const registerOnBackend = async (userData) => {
         if (response.ok) {
             const responseData = await response.json();
             // Manejo de la respuesta exitosa
-            console.log('Usuario registrado con éxito:', responseData);
+            // console.log('Usuario registrado con éxito:', responseData);
         } else {
             const errorData = await response.json();
             console.error('Error en el registro en el backend:', errorData.error);

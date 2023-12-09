@@ -1,0 +1,40 @@
+.container-logo {
+    font-size: x-large;
+    padding: 15px;
+}
+.logo_header {
+    width: 5rem;
+    transition: transform 0.5s ease;
+}
+
+.logo_header:hover {
+    transform: scale(1.1);
+}
+
+.navbar-toggler-icon {
+    stroke: white !important;
+}
+
+.navbar-toggler {
+    background-color: #fb8500 !important;
+}
+
+nav {
+    margin-top: 0 !important;
+    font-weight: 700;
+}
+
+.link-izq {
+    color: white;
+    margin: 0 20px;
+}
+
+.link-izq:hover {
+    color: #e17700;
+}
+
+
+
+.bi {
+    margin-right: 3px;
+}

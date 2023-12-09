@@ -1,0 +1,19 @@
+.back-button-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    color: #0d6efd; /* Ajusta el color según sea necesario */
+    max-width: 100px;
+}
+
+.back-button-container:hover {
+    text-decoration: none;
+    /* Añade cualquier otro estilo para el estado hover si es necesario */
+}
+
+.back-button-container span {
+    margin-left: 8px; /* Ajusta el espaciado según sea necesario */
+}
