@@ -1,12 +1,9 @@
 .back-button-container {
-    display: flex;
+    display: block;
     align-items: center;
     cursor: pointer;
     padding: 10px;
-    margin-bottom: 20px; /* Ajusta el margen según sea necesario */
-    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
-    color: #0d6efd; /* Ajusta el color según sea necesario */
-    max-width: 100px;
+    margin-bottom: 20px;
 }
 
 .back-button-container:hover {
@@ -15,5 +12,29 @@
 }
 
 .back-button-container span {
-    margin-left: 8px; /* Ajusta el espaciado según sea necesario */
+    margin-left: 8px;
+    /* Ajusta el espaciado según sea necesario */
+}
+
+.btn-atras {
+    max-width: 150px;
+    /* O el ancho máximo que prefieras */
+    display: inline-block;
+    /* Esto hará que el botón solo ocupe el ancho de su contenido */
+}
+
+
+@media screen and (max-width: 1440px) {
+    .login-register-logo {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .container-form {
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        margin: 0;
+    }
 }

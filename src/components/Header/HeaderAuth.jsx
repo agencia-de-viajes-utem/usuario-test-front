@@ -1,7 +1,8 @@
 import React from "react";
 import "./Header.css";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "wouter";
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom
+
 const HeaderAuth = () => {
     return (
         <Navbar
@@ -10,9 +11,9 @@ const HeaderAuth = () => {
             style={{ background: "#023047" }}
         >
             <div className="container-xl">
-                <Link href="/">
+                <Link to="/">
                     <img
-                        src="/logo.png"
+                        src={`${import.meta.env.VITE_BUCKET_LOGO}`}
                         alt="logo"
                         className="logo_header"
                     />
@@ -25,13 +26,13 @@ const HeaderAuth = () => {
                     <Nav className="me-auto justify-content-center">
                         <Link
                             className="link-izq d-flex justify-content-center"
-                            href="/nosotros"
+                            to="/nosotros"
                         >
                             <i className="bi bi-info-circle-fill"></i> Nosotros
                         </Link>
                         <Link
                             className="link-izq d-flex justify-content-center"
-                            href="/faq"
+                            to="/faq"
                         >
                             <i className="bi bi-question-circle-fill"></i> FAQ
                         </Link>
@@ -41,4 +42,5 @@ const HeaderAuth = () => {
         </Navbar>
     );
 };
+
 export default HeaderAuth;

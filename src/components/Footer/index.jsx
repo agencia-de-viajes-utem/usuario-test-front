@@ -5,7 +5,7 @@ function Footer() {
         <footer className="custom-footer">
             <div className="logo-container">
                 <img
-                    src = {`${import.meta.env.VITE_BUCKET_LOGO2}`}
+                    src={`${import.meta.env.VITE_BUCKET_LOGO}`}
                     alt="Logo"
                 />
             </div>

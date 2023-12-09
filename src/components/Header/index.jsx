@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function NavBar() {
     return (
@@ -10,31 +11,36 @@ function NavBar() {
             style={{ background: "#023047" }}
         >
             <div className="container-xl">
-                <Navbar.Brand href="/">
+                <Link to="/" className="navbar-brand">
                     <img
-                        src = {`${import.meta.env.VITE_BUCKET_LOGO2}`}
+                        src={import.meta.env.VITE_BUCKET_LOGO}
                         alt="logo"
                         className="logo_header"
                     />
-                </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle
                     aria-controls="menu"
                     className="btn-colapse"
                 />
                 <Navbar.Collapse id="menu">
                     <Nav className="me-auto justify-content-center">
-                        <Nav.Link
-                            className="link-izq d-flex justify-content-center"
-                            href="/nosotros"
+                        <Link
+                            className="link-izq d-flex justify-content-center nav-link"
+                            to="/nosotros"
                         >
                             <i className="bi bi-info-circle-fill"></i> Nosotros
-                        </Nav.Link>
-                        <Nav.Link
-                            className="link-izq d-flex justify-content-center"
-                            href="/faq"
+                        </Link>
+                        <Link
+                            className="link-izq d-flex justify-content-center nav-link"
+                            to="/faq"
                         >
                             <i className="bi bi-question-circle-fill"></i> FAQ
-                        </Nav.Link>
+                        </Link>
+                    </Nav>
+                    <Nav>
+                        <Link to="/" className="nav-link mx-auto">
+                            <Button variant="outline-light">Ingresar</Button>
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </div>

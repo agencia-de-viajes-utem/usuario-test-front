@@ -5,6 +5,8 @@ import LoginRegisterPage from './pages/LoginRegisterPage';
 import UserProfilePage from './pages/UserProfilePage';
 import Layout from './components/Layout';
 
+import './App.css';
+
 const withLayout = (PageComponent) => {
   return () => (
     <Layout>

@@ -5,7 +5,7 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { ObtenerInfoPerfil } from '../../api/perfil';
 import { Modal, Button } from 'react-bootstrap';
-import { IoIosArrowBack } from "react-icons/io";
+import { RiArrowLeftSLine } from "react-icons/ri";
 import './LoginRegister.css';
 
 const LoginRegisterForm = () => {
@@ -120,6 +120,10 @@ const LoginRegisterForm = () => {
         </Modal>
     );
 
+    const handleGoBack = () => {
+        const redirectURL = `${import.meta.env.VITE_FRONT_AGENDAMIENTO}`;
+    };
+
     return (
         <div className="login-register-container">
             <div className="login-register-card">
@@ -133,17 +137,35 @@ const LoginRegisterForm = () => {
                             email={email}
                             password={password}
                         />
-                        <img src={`${import.meta.env.VITE_BUCKET_LOGO}`} alt="Logo" />
+                        <img
+                            className='login-register-logo'
+                            src={`${import.meta.env.VITE_BUCKET_LOGO}`}
+                            alt="Logo"
+                        />
                     </div>
                 ) : (
                     <>
-                        <div className="back-button-container" onClick={() => setIsLoginView(true)}>
-                            <IoIosArrowBack />
-                            <span>Atrás</span>
+                        <div className="mt-2 mx-2  btn-atras" >
+                            <RiArrowLeftSLine
+                                className='my-auto' />
+                            <Button
+                                className="w-auto"
+                                variant="primary"
+                                onClick={() => setIsLoginView(true)}
+                            >
+                                Atrás
+                            </Button>
                         </div>
+
                         <div className="d-flex">
-                            <img src={`${import.meta.env.VITE_BUCKET_LOGO}`} alt="Logo" />
-                            <RegisterForm onRegister={handleRegister} />
+                            <img
+                                className='login-register-logo'
+                                src={`${import.meta.env.VITE_BUCKET_LOGO}`}
+                                alt="Logo"
+                            />
+                            <RegisterForm
+                                onRegister={handleRegister}
+                            />
                         </div>
                     </>
                 )}
