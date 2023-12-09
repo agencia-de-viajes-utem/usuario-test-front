@@ -2,10 +2,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: admin-front
+  name: usuario-test-front
 spec:
   selector:
-    app: admin-front
+    app: usuario-test-front
   ports:
     - protocol: TCP
       port: 80
