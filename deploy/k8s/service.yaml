@@ -5,7 +5,7 @@ metadata:
   name: usuario-test-front
 spec:
   selector: 
-    app: usuario-front
+    app: usuario-front  
   ports:
     - protocol: TCP
       port: 80
