@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: usuario-test-front
 spec:
-  selector:
+  selector: 
     app: usuario-test-front
   ports:
     - protocol: TCP
